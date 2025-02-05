@@ -1,0 +1,7 @@
+{
+  "name": "User Memory",
+  "version": "1.0.0",
+  "description": "Persistent user memory storage that appears in system messages",
+  "services": [],
+  "commands": ["memory_add", "memory_update", "memory_delete"]
+}
