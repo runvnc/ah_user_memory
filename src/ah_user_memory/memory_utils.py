@@ -98,7 +98,10 @@ def format_memories(memories: List[Dict]) -> str:
     if not memories:
         return ""
         
-    formatted = "\n\n# User Memories\n\n"
+    formatted = """
+
+# User Memories
+Important information about this user that persists across chat sessions.
     for memory in memories:
         timestamp = datetime.fromtimestamp(memory['timestamp']/1000, timezone.utc)
         formatted += f"--- Memory {timestamp.strftime('%Y-%m-%d %H:%M:%S %Z')} ---\n{memory['content']}\n\n"
