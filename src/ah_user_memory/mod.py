@@ -58,6 +58,7 @@ async def add_user_memories(data: dict, context=None) -> dict:
         elif isinstance(first_msg.get('content'), list):
             first_msg['content'].append({"type": "text", "text": formatted_memories})
 
+        data['messages'][0] = first_msg
         return data
 
     except Exception as e:
