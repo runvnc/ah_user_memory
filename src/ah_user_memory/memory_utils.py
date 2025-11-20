@@ -106,6 +106,11 @@ Important information about this user that persists across chat sessions.
 """
     for memory in memories:
         timestamp = datetime.fromtimestamp(memory['timestamp']/1000, timezone.utc)
-        formatted += f"--- Memory {timestamp.strftime('%Y-%m-%d %H:%M:%S %Z')} ---\n{memory['content']}\n\n"
+        memory_id = memory.get("id", "unknown")
+        formatted += (
+            f"--- Memory ID: {memory_id} | "
+            f"{timestamp.strftime('%Y-%m-%d %H:%M:%S %Z')} ---\n"
+            f"{memory.get('content', '')}\n\n"
+        )
     
     return formatted
