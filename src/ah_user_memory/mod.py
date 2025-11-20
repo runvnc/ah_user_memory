@@ -59,7 +59,7 @@ async def add_user_memories(data: dict, context=None) -> dict:
             first_msg['content']['text'] = first_msg['content']['text'] + formatted_memories
         elif isinstance(first_msg.get('content'), list):
             print('C')
-            first_msg['content'][0]["text" += formatted_memories
+            first_msg['content'][0]["text"] += formatted_memories
 
         data['messages'][0] = first_msg
         return data
