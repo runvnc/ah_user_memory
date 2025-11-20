@@ -17,7 +17,7 @@ from .memory_utils import (
 from loguru import logger
 
 @pipe(name='filter_messages', priority=8)
-def add_user_memories(data: dict, context=None) -> dict:
+async def add_user_memories(data: dict, context=None) -> dict:
     """
     Add user memories to the end of the system message.
     
