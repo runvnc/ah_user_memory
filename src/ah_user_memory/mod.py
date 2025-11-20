@@ -31,6 +31,7 @@ def add_user_memories(data: dict, context=None) -> dict:
         dict: The modified message data with memories appended, or original data if operation fails
     """
     try:
+        print("Adding user memories to system message...")
         if context is None or not hasattr(context, 'username'):
             logger.warning("No username found in context for memories")
             return data
@@ -49,6 +50,7 @@ def add_user_memories(data: dict, context=None) -> dict:
             return data
 
         first_msg = data['messages'][0]
+        print("adding user memories")
         if isinstance(first_msg.get('content'), str):
             first_msg['content'] = first_msg['content'] + formatted_memories
         elif isinstance(first_msg.get('content'), dict) and first_msg['content'].get('type') == 'text':
@@ -60,6 +62,7 @@ def add_user_memories(data: dict, context=None) -> dict:
 
     except Exception as e:
         logger.error(f"Error in add_user_memories pipe: {str(e)}")
+        print("Failed to add user memories.",e)
         return data
 
 @command()
