@@ -52,11 +52,14 @@ async def add_user_memories(data: dict, context=None) -> dict:
         first_msg = data['messages'][0]
         print("adding user memories")
         if isinstance(first_msg.get('content'), str):
+            print('A')
             first_msg['content'] = first_msg['content'] + formatted_memories
         elif isinstance(first_msg.get('content'), dict) and first_msg['content'].get('type') == 'text':
+            print('B')
             first_msg['content']['text'] = first_msg['content']['text'] + formatted_memories
         elif isinstance(first_msg.get('content'), list):
-            first_msg['content'].append({"type": "text", "text": formatted_memories})
+            print('C')
+            first_msg['content'][0]["text" += formatted_memories
 
         data['messages'][0] = first_msg
         return data
